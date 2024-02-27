@@ -20,6 +20,7 @@ import com.jhc.andy_lotte.common.Version
 import com.jhc.andy_lotte.common.toast
 import com.jhc.andy_lotte.databinding.ActivitySplashBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
@@ -27,6 +28,19 @@ class SplashActivity : AppCompatActivity() {
     val binding by lazy { ActivitySplashBinding.inflate(layoutInflater) }
     val viewModel:SplashViewModel by viewModels()
     val version = Version(this)
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+
+        versionCheck()
+        observeUpdate()
+        observeGoMain()
+    }
+
+
+    // 업데이트 관련 함수 start ~
 
     val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -36,25 +50,24 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        versionCheck()
-        observeUpdate()
-        observeGoMain()
-    }
-
     private fun versionCheck(){
         viewModel.getVersion()
     }
 
+    private fun observeGoMain(){
+        lifecycleScope.launchWhenCreated {
+            viewModel.goMain.collect{
+                if (it){
+                    delay(2000)
+                    startActivity(Intent(this@SplashActivity,MainActivity::class.java))
+                    finish()
+                }
+            }
+        }
+    }
+
     private fun observeUpdate(){
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launchWhenCreated {
             viewModel.updateNeeded.collect { needUpdate ->
                 if (needUpdate) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !packageManager.canRequestPackageInstalls()) {
@@ -80,18 +93,5 @@ class SplashActivity : AppCompatActivity() {
             version.showUpdateDialog()
         }
     }
-
-    private fun observeGoMain(){
-        lifecycleScope.launchWhenStarted {
-            viewModel.goMain.collect{
-                if (it){
-                    startActivity(Intent(this@SplashActivity,MainActivity::class.java))
-                    finish()
-                }
-            }
-        }
-    }
-
-
-
+    // 업데이트 관련 함수 end ~
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AlertDialog
 import com.jhc.andy_lotte.LotteApplication
+import com.jhc.andy_lotte.R
 import com.jhc.andy_lotte.api.UpdateManager
 
 class Version(private val context: Context = LotteApplication.appContext) {
@@ -11,7 +12,7 @@ class Version(private val context: Context = LotteApplication.appContext) {
     fun showUpdateDialog() {
         val builder = AlertDialog.Builder(context).apply {
             setTitle("업데이트 확인")
-            //setIcon(R.drawable.logo)
+            setIcon(R.drawable.lotte_logo)
             setMessage("앱을 사용하시려면 업데이트를 해야 합니다.")
             setCancelable(false)
             setPositiveButton("예") { _, _ ->

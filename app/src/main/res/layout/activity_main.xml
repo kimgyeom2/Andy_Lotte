@@ -4,15 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.main.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/ic_main_title"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_terminal"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/btn_main_menu"
+        android:drawableTop="@drawable/ic_terminal"
+        android:paddingTop="12dp"
+        android:text="@string/menu_terminal"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_agency"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/btn_agency"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/btn_main_menu"
+        android:drawableTop="@drawable/ic_agency"
+        android:paddingStart="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/menu_agency"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_terminal"
+        app:layout_constraintTop_toTopOf="@+id/btn_terminal" />
+
+    <Button
+        android:id="@+id/btn_data"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/btn_main_menu"
+        android:drawableTop="@drawable/ic_data"
+        android:paddingStart="4dp"
+        android:paddingTop="4dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/menu_data"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_setting"
+        app:layout_constraintTop_toBottomOf="@+id/btn_terminal" />
+
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="144dp"
+        android:layout_height="144dp"
+        android:background="@drawable/btn_main_menu"
+        android:drawableTop="@drawable/ic_data"
+        android:paddingStart="4dp"
+        android:paddingTop="4dp"
+        android:text="@string/menu_setting"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_data"
+        app:layout_constraintTop_toTopOf="@+id/btn_data" />
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ver 0.0.0"
+        android:textColor="@color/lotte_primary"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@id/btn_data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

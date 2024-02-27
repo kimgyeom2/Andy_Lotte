@@ -7,18 +7,15 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import com.jhc.andy_lotte.MainActivity
 import com.jhc.andy_lotte.R
-import com.jhc.andy_lotte.api.UpdateManager
 import com.jhc.andy_lotte.common.Version
 import com.jhc.andy_lotte.common.toast
 import com.jhc.andy_lotte.databinding.ActivitySplashBinding
+import com.jhc.andy_lotte.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 

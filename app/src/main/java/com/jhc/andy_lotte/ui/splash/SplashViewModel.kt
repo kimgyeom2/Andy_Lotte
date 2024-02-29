@@ -10,8 +10,10 @@ import com.jhc.andy_lotte.common.Version
 import com.jhc.andy_lotte.common.toast
 import com.jhc.andy_lotte.usecase.AdminUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,6 +32,9 @@ class SplashViewModel @Inject constructor(private val adminUseCase: AdminUseCase
                     } else {
                         toast(R.string.newest_version)
                         goMain.value = true
+                        withContext(Dispatchers.IO){
+                            adminUseCase.db()
+                        }
                     }
                 }
             } catch (e: Exception) {

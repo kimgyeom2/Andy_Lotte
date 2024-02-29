@@ -1,7 +1,8 @@
-package com.jhc.andy_lotte.repository
+package com.jhc.andy_lotte.repository.admin
 
 import com.jhc.andy_lotte.api.request.UpdateVersionRequest
 import com.jhc.andy_lotte.api.service.AppAdminService
+import com.jhc.andy_lotte.repository.admin.AdminRepository
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 

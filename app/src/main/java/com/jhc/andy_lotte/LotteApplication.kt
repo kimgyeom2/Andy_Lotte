@@ -5,6 +5,7 @@ import android.content.Context
 import com.jhc.andy_lotte.common.Params
 import com.jhc.andy_lotte.common.Reaction
 import com.jhc.andy_lotte.db.SharedManager
+import com.jhc.andy_lotte.module.DatabaseModule
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp

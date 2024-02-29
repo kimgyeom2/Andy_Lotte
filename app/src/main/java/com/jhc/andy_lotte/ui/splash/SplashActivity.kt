@@ -12,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.lifecycleScope
 import com.jhc.andy_lotte.R
+import com.jhc.andy_lotte.base.BaseActivity
 import com.jhc.andy_lotte.common.Version
 import com.jhc.andy_lotte.common.toast
 import com.jhc.andy_lotte.databinding.ActivitySplashBinding
@@ -20,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 
 @AndroidEntryPoint
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     val binding by lazy { ActivitySplashBinding.inflate(layoutInflater) }
     val viewModel:SplashViewModel by viewModels()

@@ -1,8 +1,6 @@
 package com.jhc.andy_lotte.module
 
 import com.jhc.andy_lotte.api.service.AppAdminService
-import com.jhc.andy_lotte.repository.AdminRepository
-import com.jhc.andy_lotte.repository.AdminRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,7 +8,6 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
@@ -26,7 +23,6 @@ class NetworkModule {
     fun provideAdminRetrofit(okHttpClient: OkHttpClient): AppAdminService {
         return Retrofit.Builder()
             .baseUrl("http://13.124.129.107:8080/AppAdmin/")
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()

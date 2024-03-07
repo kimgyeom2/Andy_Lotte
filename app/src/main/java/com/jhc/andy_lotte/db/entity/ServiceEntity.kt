@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "service")
 data class ServiceEntity(
     @PrimaryKey
-    var idx: Int,
-    var code: String,
-    var serviceName: String
+    val idx: Int,
+    val code: String?,
+    val serviceName: String?
 )

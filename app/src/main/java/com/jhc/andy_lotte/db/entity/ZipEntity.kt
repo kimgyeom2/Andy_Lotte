@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "zip")
 data class ZipEntity(
     @PrimaryKey
-    var idx: Int,
-    var code: Int,
-    var zipName: String,
+    val idx: Int,
+    val code: Int,
+    val zipName: String?,
 )

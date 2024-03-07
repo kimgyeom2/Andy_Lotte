@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "office")
 data class OfficeEntity(
     @PrimaryKey
-    var num: String ,
-    var code: String,
-    var officeName: String
+    val num: String,
+    val code: String?,
+    val officeName: String?
 )

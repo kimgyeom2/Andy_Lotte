@@ -32,9 +32,6 @@ class SplashViewModel @Inject constructor(private val adminUseCase: AdminUseCase
                     } else {
                         toast(R.string.newest_version)
                         goMain.value = true
-                        withContext(Dispatchers.IO){
-                            adminUseCase.db()
-                        }
                     }
                 }
             } catch (e: Exception) {

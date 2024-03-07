@@ -1,6 +1,5 @@
 package com.jhc.andy_lotte.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -13,11 +12,18 @@ import com.jhc.andy_lotte.common.KeyTrans
 import com.jhc.andy_lotte.common.Version
 import com.jhc.andy_lotte.common.toast
 import com.jhc.andy_lotte.databinding.ActivityMainBinding
+import com.jhc.andy_lotte.db.AppDataBase
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
+    @Inject
+    lateinit var database: AppDataBase
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     val viewModel: MainViewModel by viewModels()
     val version=Version()
@@ -27,6 +33,9 @@ class MainActivity : BaseActivity() {
         setContentView(binding.apply {
             viewModel=this@MainActivity.viewModel
         }.root)
+        CoroutineScope(Dispatchers.IO).launch {
+            database.zipDao().getAll()
+        }
     }
 
     override fun onResume() {

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="symbol" format="reference|integer" />
+    <attr name="hint" format="reference|string" />
+    <attr name="textColor" format="reference|integer" />
+
+
+
+    <declare-styleable name="AndyEditText">
+        <attr name="input" format="reference|string" />
+    </declare-styleable>
+
+</resources>

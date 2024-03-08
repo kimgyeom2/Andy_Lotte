@@ -1,15 +1,14 @@
 package com.jhc.andy_lotte.ui.terminal
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import com.jhc.andy_lotte.base.BaseActivity
-import com.jhc.andy_lotte.databinding.ActivityTmlSettingBinding
+import com.jhc.andy_lotte.databinding.ActivityUserSettingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TmlSettingActivity : BaseActivity() {
+class UserSettingActivity : BaseActivity() {
 
-    val binding by lazy { ActivityTmlSettingBinding.inflate(layoutInflater) }
+    val binding by lazy { ActivityUserSettingBinding.inflate(layoutInflater) }
    // val viewModel: TmlSettingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
